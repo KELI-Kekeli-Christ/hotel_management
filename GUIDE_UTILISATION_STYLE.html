@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide d'Utilisation - Système de Gestion Hôtelière</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+        @media print {
+            .markdown-body {
+                padding: 20px;
+            }
+        }
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+        @page {
+            margin: 2cm;
+        }
+    </style>
+</head>
+<body>
+    <article class="markdown-body">
+<h1 id="guide-dutilisation---système-de-gestion-hôtelière">Guide
+d’Utilisation - Système de Gestion Hôtelière</h1>
+<h2 id="table-des-matières">Table des matières</h2>
+<ol type="1">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#accès-au-système">Accès au système</a></li>
+<li><a href="#rôles-et-permissions">Rôles et permissions</a></li>
+<li><a href="#guide-client">Guide Client</a></li>
+<li><a href="#guide-administrateur">Guide Administrateur</a></li>
+<li><a href="#réservations">Réservations</a></li>
+<li><a href="#commandes-de-services">Commandes de Services</a></li>
+<li><a href="#gestion-des-chambres">Gestion des Chambres</a></li>
+<li><a href="#paiements-avec-fedapay">Paiements avec FedaPay</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+<hr />
+<h2 id="introduction">Introduction</h2>
+<p>Ce système de gestion hôtelière permet de gérer les réservations de
+chambres, les commandes de services (restaurant, room service), et les
+paiements en ligne via FedaPay.</p>
+<hr />
+<h2 id="accès-au-système">Accès au système</h2>
+<h3 id="url-de-lapplication">URL de l’application</h3>
+<ul>
+<li><strong>Frontend</strong> : <code>http://localhost:3000</code> (en
+développement)</li>
+<li><strong>Backend API</strong> :
+<code>http://localhost:8000/api</code></li>
+</ul>
+<h3 id="connexion">Connexion</h3>
+<ol type="1">
+<li>Accédez à la page de connexion</li>
+<li>Entrez votre email et mot de passe</li>
+<li>Cliquez sur “Se connecter”</li>
+</ol>
+<h3 id="création-de-compte">Création de compte</h3>
+<p>Les nouveaux utilisateurs peuvent créer un compte depuis la page
+d’inscription (si cette fonctionnalité est activée).</p>
+<hr />
+<h2 id="rôles-et-permissions">Rôles et permissions</h2>
+<p>Le système gère différents rôles avec des permissions spécifiques
+:</p>
+<h3 id="client"><strong>Client</strong></h3>
+<ul>
+<li>Consulter les chambres disponibles</li>
+<li>Réserver une chambre (avec paiement FedaPay)</li>
+<li>Consulter ses réservations</li>
+<li>Modifier ses réservations (avec paiement partiel)</li>
+<li>Commander des services (restaurant)</li>
+<li>Consulter ses commandes</li>
+<li>Recevoir des notifications</li>
+</ul>
+<h3 id="administrateur"><strong>Administrateur</strong></h3>
+<ul>
+<li>Toutes les permissions du client</li>
+<li>Gérer les utilisateurs</li>
+<li>Gérer les chambres</li>
+<li>Créer et modifier des réservations pour les clients</li>
+<li>Gérer les commandes</li>
+<li>Gérer le menu des services</li>
+<li>Consulter les statistiques</li>
+<li>Gérer les notifications</li>
+</ul>
+<hr />
+<h2 id="guide-client">Guide Client</h2>
+<h3 id="consulter-les-chambres-disponibles">Consulter les chambres
+disponibles</h3>
+<ol type="1">
+<li>Connectez-vous à votre compte</li>
+<li>Accédez à la section <strong>“Chambres”</strong> dans le menu</li>
+<li>Les chambres disponibles sont marquées en vert</li>
+<li>Les chambres réservées sont marquées en rouge (indisponibles)</li>
+<li>Cliquez sur une chambre pour voir les détails (prix, type,
+équipements)</li>
+</ol>
+<h3 id="réserver-une-chambre">Réserver une chambre</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Chambres”</strong></li>
+<li>Cliquez sur le bouton <strong>“Réserver”</strong> sur une chambre
+disponible</li>
+<li>Sélectionnez les dates d’arrivée et de départ</li>
+<li>Vérifiez le nombre de nuits et le montant total</li>
+<li>Cliquez sur <strong>“Confirmer la réservation”</strong></li>
+<li>Vous serez redirigé vers FedaPay pour effectuer le paiement</li>
+<li>Complétez le paiement</li>
+<li>Une fois le paiement validé, la réservation est confirmée avec le
+statut <strong>“Payée”</strong></li>
+</ol>
+<p><strong>Note</strong> : La réservation n’est confirmée qu’après
+validation du paiement via FedaPay.</p>
+<h3 id="consulter-mes-réservations">Consulter mes réservations</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Mes Réservations”</strong> dans le
+menu</li>
+<li>Vous verrez la liste de toutes vos réservations</li>
+<li>Chaque réservation affiche :
+<ul>
+<li>Numéro de réservation</li>
+<li>Chambre réservée</li>
+<li>Dates d’arrivée et de départ</li>
+<li>Nombre de nuits</li>
+<li>Statut (En attente, Payée, Confirmée, Annulée, etc.)</li>
+<li>Montant total</li>
+</ul></li>
+</ol>
+<h3 id="modifier-une-réservation">Modifier une réservation</h3>
+<ol type="1">
+<li>Accédez à <strong>“Mes Réservations”</strong></li>
+<li>Cliquez sur le bouton <strong>“Modifier”</strong> sur une
+réservation payée ou confirmée</li>
+<li>Modifiez les dates d’arrivée et/ou de départ</li>
+<li>Le système calcule automatiquement :
+<ul>
+<li>Si la durée reste identique ou diminue : paiement de l’acompte
+seulement (20% par défaut)</li>
+<li>Si la durée augmente : paiement de l’acompte + le surplus</li>
+</ul></li>
+<li>Cliquez sur <strong>“Enregistrer”</strong></li>
+<li>Vous serez redirigé vers FedaPay pour effectuer le paiement
+supplémentaire</li>
+<li>Une fois le paiement validé, les nouvelles dates sont
+appliquées</li>
+</ol>
+<p><strong>Note</strong> : Seules les réservations avec le statut
+“Payée”, “Confirmée” ou “En attente” peuvent être modifiées.</p>
+<h3 id="commander-des-services-restaurant">Commander des services
+(Restaurant)</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Services”</strong> dans le menu</li>
+<li>Parcourez le menu par catégorie</li>
+<li>Cliquez sur <strong>“Ajouter”</strong> pour ajouter un article à
+votre commande</li>
+<li>Ajustez les quantités dans le panier si nécessaire</li>
+<li>Remplissez le champ <strong>“Localisation”</strong> (ex: Table 5,
+Chambre 101)</li>
+<li>Ajoutez une note optionnelle (allergies, instructions
+spéciales)</li>
+<li>Cliquez sur <strong>“Passer la commande”</strong></li>
+<li>Vous serez redirigé vers FedaPay pour effectuer le paiement</li>
+<li>Une fois le paiement validé, la commande est automatiquement marquée
+comme <strong>“Prête”</strong></li>
+</ol>
+<h3 id="consulter-mes-commandes">Consulter mes commandes</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Mes Commandes”</strong> dans le
+menu</li>
+<li>Vous verrez la liste de toutes vos commandes</li>
+<li>Chaque commande affiche :
+<ul>
+<li>Numéro de commande</li>
+<li>Type (Restaurant)</li>
+<li>Localisation</li>
+<li>Liste des articles commandés avec quantités et prix</li>
+<li>Note (si ajoutée)</li>
+<li>Statut (En attente, Prête, Livrée, Annulée)</li>
+<li>Date de commande</li>
+<li>Montant total</li>
+</ul></li>
+</ol>
+<p><strong>Note</strong> : Les commandes sont automatiquement confirmées
+après validation du paiement via FedaPay.</p>
+<hr />
+<h2 id="guide-administrateur">Guide Administrateur</h2>
+<h3 id="gestion-des-utilisateurs">Gestion des utilisateurs</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Utilisateurs”</strong> dans le menu
+admin</li>
+<li>Vous pouvez :
+<ul>
+<li>Voir la liste de tous les utilisateurs</li>
+<li>Créer un nouvel utilisateur</li>
+<li>Modifier les informations d’un utilisateur</li>
+<li>Gérer les permissions et rôles</li>
+<li>Désactiver un compte</li>
+</ul></li>
+</ol>
+<h3 id="gestion-des-chambres">Gestion des chambres</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Chambres”</strong> dans le menu
+admin</li>
+<li>Vous pouvez :
+<ul>
+<li>Voir la liste de toutes les chambres</li>
+<li>Ajouter une nouvelle chambre</li>
+<li>Modifier une chambre existante (numéro, type, prix,
+disponibilité)</li>
+<li>Supprimer une chambre</li>
+<li>Voir le statut de disponibilité en temps réel</li>
+</ul></li>
+</ol>
+<h3 id="gestion-des-réservations">Gestion des réservations</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Réservations”</strong> dans le menu
+admin</li>
+<li>Vous pouvez :
+<ul>
+<li>Voir toutes les réservations</li>
+<li>Créer une réservation pour un client</li>
+<li>Modifier une réservation</li>
+<li>Annuler une réservation</li>
+<li>Voir les détails (client, chambre, dates, montant, statut)</li>
+</ul></li>
+</ol>
+<p><strong>Note</strong> : Même en tant qu’administrateur, vous devez
+passer par FedaPay pour créer ou modifier une réservation.</p>
+<h3 id="gestion-des-commandes">Gestion des commandes</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Services”</strong> dans le menu
+admin</li>
+<li>Dans l’onglet <strong>“Commandes”</strong>, vous pouvez :
+<ul>
+<li>Voir toutes les commandes</li>
+<li>Voir les informations client (nom, email)</li>
+<li>Voir la note du client (si présente)</li>
+<li>Voir le statut de chaque commande</li>
+<li>Les commandes payées sont automatiquement marquées comme
+<strong>“Prête”</strong></li>
+</ul></li>
+</ol>
+<h3 id="gestion-du-menu">Gestion du menu</h3>
+<ol type="1">
+<li>Accédez à la section <strong>“Services”</strong> dans le menu
+admin</li>
+<li>Dans l’onglet <strong>“Menu”</strong>, vous pouvez :
+<ul>
+<li>Voir tous les articles du menu</li>
+<li>Ajouter un nouvel article (nom, catégorie, prix, description,
+photo)</li>
+<li>Modifier un article existant</li>
+<li>Gérer la disponibilité (en stock / épuisé)</li>
+<li>Supprimer un article</li>
+</ul></li>
+</ol>
+<h3 id="statistiques">Statistiques</h3>
+<ol type="1">
+<li>Accédez au <strong>“Tableau de bord”</strong></li>
+<li>Vous verrez :
+<ul>
+<li>Nombre de réservations en cours</li>
+<li>Revenus du jour</li>
+<li>Commandes en attente</li>
+<li>Statistiques des services</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="réservations">Réservations</h2>
+<h3 id="statuts-de-réservation">Statuts de réservation</h3>
+<ul>
+<li><strong>En attente</strong> : Réservation créée, en attente de
+paiement</li>
+<li><strong>Payée</strong> : Paiement validé via FedaPay</li>
+<li><strong>Confirmée</strong> : Réservation confirmée (ancien
+statut)</li>
+<li><strong>Annulée</strong> : Réservation annulée</li>
+<li><strong>Échouée</strong> : Échec du paiement</li>
+<li><strong>Expirée</strong> : Réservation expirée</li>
+<li><strong>Enregistrée</strong> : Client enregistré (check-in)</li>
+<li><strong>Départ</strong> : Client parti (check-out)</li>
+</ul>
+<h3 id="règles-de-disponibilité">Règles de disponibilité</h3>
+<ul>
+<li>Une chambre devient <strong>indisponible</strong> dès qu’une
+réservation est payée</li>
+<li>La chambre redevient <strong>disponible</strong> automatiquement
+après la date de départ</li>
+<li>Si un paiement est annulé, la chambre redevient disponible
+immédiatement</li>
+</ul>
+<h3 id="modification-de-réservation">Modification de réservation</h3>
+<p><strong>Règles de calcul du paiement supplémentaire :</strong></p>
+<ul>
+<li><p><strong>Pourcentage d’acompte configurable</strong> : 20% par
+défaut (configurable dans <code>.env</code> via
+<code>RESERVATION_MODIFICATION_PAYMENT_PERCENTAGE</code>)</p></li>
+<li><p><strong>Si la durée diminue ou reste identique</strong> :</p>
+<ul>
+<li>Paiement = Acompte (X% du nouveau montant total)</li>
+</ul></li>
+<li><p><strong>Si la durée augmente</strong> :</p>
+<ul>
+<li>Paiement = Acompte (X% du nouveau montant) + Surplus (différence
+entre ancien et nouveau montant)</li>
+</ul></li>
+</ul>
+<p><strong>Exemple</strong> : - Réservation initiale : 5 nuits × 10000
+XOF = 50000 XOF - Modification : 7 nuits × 10000 XOF = 70000 XOF -
+Acompte (20%) : 70000 × 0.20 = 14000 XOF - Surplus : 70000 - 50000 =
+20000 XOF - <strong>Montant à payer</strong> : 14000 + 20000 = 34000
+XOF</p>
+<hr />
+<h2 id="commandes-de-services">Commandes de Services</h2>
+<h3 id="statuts-de-commande">Statuts de commande</h3>
+<ul>
+<li><strong>En attente</strong> : Commande créée, en attente de
+paiement</li>
+<li><strong>Prête</strong> : Paiement validé, commande prête
+(automatique après paiement)</li>
+<li><strong>Livrée</strong> : Commande livrée au client</li>
+<li><strong>Annulée</strong> : Commande annulée</li>
+</ul>
+<h3 id="types-de-commandes">Types de commandes</h3>
+<p>Actuellement, seul le type <strong>“Restaurant”</strong> est
+disponible.</p>
+<h3 id="processus-de-commande">Processus de commande</h3>
+<ol type="1">
+<li>Le client sélectionne les articles dans le menu</li>
+<li>Remplit la localisation et une note optionnelle</li>
+<li>Passe la commande</li>
+<li>Redirection vers FedaPay pour le paiement</li>
+<li>Après validation du paiement :
+<ul>
+<li>La commande est automatiquement marquée comme
+<strong>“Prête”</strong></li>
+<li>Les administrateurs reçoivent une notification</li>
+<li>Le client peut voir sa commande dans “Mes Commandes”</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="gestion-des-chambres-1">Gestion des Chambres</h2>
+<h3 id="types-de-chambres">Types de chambres</h3>
+<p>Le système permet de définir différents types de chambres : - Simple
+- Double - Suite - etc.</p>
+<h3 id="disponibilité">Disponibilité</h3>
+<ul>
+<li><strong>Disponible</strong> : La chambre peut être réservée</li>
+<li><strong>Indisponible</strong> : La chambre est actuellement
+réservée</li>
+</ul>
+<p>La disponibilité est gérée automatiquement en fonction des
+réservations.</p>
+<hr />
+<h2 id="paiements-avec-fedapay">Paiements avec FedaPay</h2>
+<h3 id="processus-de-paiement">Processus de paiement</h3>
+<ol type="1">
+<li><strong>Initiation du paiement</strong> :
+<ul>
+<li>Lors de la création d’une réservation</li>
+<li>Lors de la modification d’une réservation</li>
+<li>Lors de la création d’une commande</li>
+</ul></li>
+<li><strong>Redirection vers FedaPay</strong> :
+<ul>
+<li>Vous êtes redirigé vers la plateforme de paiement FedaPay</li>
+<li>Choisissez votre opérateur mobile money (MTN, Moov, etc.)</li>
+<li>Complétez le paiement</li>
+</ul></li>
+<li><strong>Validation</strong> :
+<ul>
+<li>Après paiement réussi, vous êtes redirigé vers l’application</li>
+<li>La réservation/commande est automatiquement confirmée</li>
+<li>Vous recevez une notification de confirmation</li>
+</ul></li>
+<li><strong>En cas d’annulation</strong> :
+<ul>
+<li>Si vous annulez le paiement, vous êtes redirigé vers
+l’application</li>
+<li>La réservation/commande reste en “En attente” ou est annulée</li>
+<li>La chambre redevient disponible (pour les réservations)</li>
+</ul></li>
+</ol>
+<h3 id="opérateurs-disponibles">Opérateurs disponibles</h3>
+<p>En environnement de test (sandbox), vous verrez “momo test” au lieu
+des vrais opérateurs.</p>
+<p>En production, les opérateurs suivants sont disponibles : - MTN
+Mobile Money - Moov Money - Autres opérateurs selon la configuration</p>
+<h3 id="facturation">Facturation</h3>
+<p>FedaPay génère automatiquement les factures pour chaque transaction.
+Le système n’affiche plus les factures internes, car FedaPay gère la
+facturation.</p>
+<hr />
+<h2 id="faq">FAQ</h2>
+<h3 id="puis-je-modifier-une-réservation-après-paiement">Puis-je
+modifier une réservation après paiement ?</h3>
+<p>Oui, vous pouvez modifier une réservation avec le statut “Payée”,
+“Confirmée” ou “En attente”. Un paiement supplémentaire sera requis
+selon les nouvelles dates.</p>
+<h3 id="que-se-passe-t-il-si-jannule-mon-paiement">Que se passe-t-il si
+j’annule mon paiement ?</h3>
+<p>La réservation/commande reste en “En attente” ou est annulée, et la
+chambre redevient disponible.</p>
+<h3
+id="pourquoi-ma-commande-est-automatiquement-marquée-comme-prête-après-paiement">Pourquoi
+ma commande est automatiquement marquée comme “Prête” après paiement
+?</h3>
+<p>C’est le comportement normal. Une fois le paiement validé, la
+commande est automatiquement confirmée et marquée comme “Prête” pour que
+le service puisse la préparer.</p>
+<h3 id="comment-contacter-le-support">Comment contacter le support
+?</h3>
+<p>Utilisez la section “Contact” du site ou contactez directement
+l’hôtel.</p>
+<h3 id="puis-je-annuler-une-réservation-après-paiement">Puis-je annuler
+une réservation après paiement ?</h3>
+<p>Les annulations doivent être effectuées via l’administration ou en
+contactant l’hôtel directement. Le remboursement sera traité selon la
+politique de l’hôtel.</p>
+<h3 id="comment-savoir-si-ma-réservation-est-confirmée">Comment savoir
+si ma réservation est confirmée ?</h3>
+<p>Une fois le paiement validé via FedaPay, la réservation passe au
+statut “Payée” et la chambre vous est réservée.</p>
+<hr />
+<h2 id="support-technique">Support technique</h2>
+<p>Pour toute question technique ou problème : - Vérifiez ce guide
+d’utilisation - Consultez le README pour l’installation et la
+configuration - Contactez l’équipe de développement</p>
+<hr />
+<p><strong>Dernière mise à jour</strong> : Janvier 2026</p>
+</article></body></html>
