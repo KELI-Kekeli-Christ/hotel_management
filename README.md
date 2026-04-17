@@ -494,5 +494,5 @@ Pour toute question ou problème, veuillez consulter la documentation ou ouvrir 
 
 ## Licence
 
-Ce projet est sous licence MIT.
+All rights reserved.
 
