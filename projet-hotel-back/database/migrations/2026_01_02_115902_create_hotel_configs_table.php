@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('hotel_configs', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->default('Hôtel');
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('logo')->nullable();
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+        
+        // Insérer une configuration par défaut
+        DB::table('hotel_configs')->insert([
+            'name' => env('HOTEL_NAME', 'Hôtel'),
+            'address' => env('HOTEL_ADDRESS', ''),
+            'phone' => env('HOTEL_PHONE', ''),
+            'email' => env('HOTEL_EMAIL', ''),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('hotel_configs');
+    }
+};
