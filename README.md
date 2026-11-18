@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="README.md"><b>English</b></a>
+  &nbsp;·&nbsp;
+  <a href="README.fr.md">Français</a>
+  &nbsp;·&nbsp;
+  <a href="README.es.md">Español</a>
+</p>
+
 # Système de Gestion Hôtelière
 
 Application web complète de gestion hôtelière développée avec Laravel (backend) et Nuxt.js (frontend). Le système permet la gestion des réservations, des chambres, des services, des factures, des paiements et propose un système d'authentification et d'autorisation basé sur les rôles.
